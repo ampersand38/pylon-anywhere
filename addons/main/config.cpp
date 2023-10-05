@@ -9,7 +9,25 @@ class CfgPatches {
             QGVAR(camera_fixed),
             QGVAR(pylon_single_tgp),
             QGVAR(pylon_single_turret),
-            QGVAR(pylon_single_fixed)
+            QGVAR(pylon_single_fixed),
+            QGVAR(camera_tgp_C),
+            QGVAR(camera_turret_C),
+            QGVAR(camera_fixed_C),
+            QGVAR(pylon_single_tgp_C),
+            QGVAR(pylon_single_turret_C),
+            QGVAR(pylon_single_fixed_C),
+            QGVAR(camera_tgp_I),
+            QGVAR(camera_turret_I),
+            QGVAR(camera_fixed_I),
+            QGVAR(pylon_single_tgp_I),
+            QGVAR(pylon_single_turret_I),
+            QGVAR(pylon_single_fixed_I),
+            QGVAR(camera_tgp_O),
+            QGVAR(camera_turret_O),
+            QGVAR(camera_fixed_O),
+            QGVAR(pylon_single_tgp_O),
+            QGVAR(pylon_single_turret_O),
+            QGVAR(pylon_single_fixed_O)
         };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
@@ -34,7 +52,7 @@ class CfgMods {
 
         action          = "https://github.com/ampersand38/pylon-anywhere"; // Website URL, that can accessed from the expansions menu
         actionName      = "URL";              // label of button/tooltip in extension menu
-        description     = "Free the Pylons!"; // Probably in context with action
+        description     = "Free the Pylon!"; // Probably in context with action
 
         // Color used for DLC stripes and backgrounds (RGBA)
         dlcColor[] =
@@ -51,3 +69,9 @@ class CfgMods {
 #include "CfgEditorSubcategories.hpp"
 #include "CfgEventHandlers.hpp"
 #include "CfgVehicles.hpp"
+
+// Keybinds
+#include "CfgDefaultKeysPresets.hpp"
+#include "CfgUserActions.hpp"
+#include "UserActionGroups.hpp"
+//#include "UserActionsConflictGroups.hpp"

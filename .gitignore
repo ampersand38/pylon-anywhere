@@ -9,5 +9,6 @@ texHeaders.bin
 Thumbs.db
 releases/*
 keys/*
-.hemtt/local
+.hemtt/*
+.hemttout/*
 *.exe

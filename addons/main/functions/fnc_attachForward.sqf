@@ -15,8 +15,8 @@
  */
 
 params [
-  ["_pylon", []],
-  ["_vehicle", []]
+    ["_pylon", []],
+    ["_vehicle", []]
 ];
 
 private _position0 = positionCameraToWorld [0, 0, 0];

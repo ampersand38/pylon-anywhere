@@ -6,7 +6,7 @@ class Components: Components
         uiPicture = "";
         class Pylons
         {
-            class Pylons1
+            class Pylon1
             {
                 hardpoints[] = {ALL_HARDPOINTS};
                 attachment = "";
