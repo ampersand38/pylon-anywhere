@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project name="TGP">
+<Project name="PYA">
     <Package name="Main">
-        <Key ID="STR_TGP_Main_Slew">
-            <English>TGP Simple Cockpit Slew</English>
+        <Key ID="STR_PYA_Main_Slew">
+            <English>Pylon Anywhere</English>
         </Key>
-        <Key ID="STR_TGP_Main_SlewHold">
+        <Key ID="STR_PYA_Main_SlewHold">
             <English>Slew (Hold)</English>
         </Key>
-        <Key ID="STR_TGP_Main_SlewHold_Tooltip">
+        <Key ID="STR_PYA_Main_SlewHold_Tooltip">
             <English>Hold this key and use mouse or 'Aim <Up|Down|Left|Right>' input to slew the active camera.</English>
         </Key>
-        <Key ID="STR_TGP_Main_HMDLock">
+        <Key ID="STR_PYA_Main_HMDLock">
             <English>Lock to HMD</English>
         </Key>
-        <Key ID="STR_TGP_Main_HMDLock_Tooltip">
+        <Key ID="STR_PYA_Main_HMDLock_Tooltip">
             <English>Lock the active camera to the current aim point of the HMD.</English>
         </Key>
-        <Key ID="STR_TGP_Main_Waypoint">
+        <Key ID="STR_PYA_Main_Waypoint">
             <English>Lock To Waypoint</English>
         </Key>
-        <Key ID="STR_TGP_Main_Waypoint_Tooltip">
+        <Key ID="STR_PYA_Main_Waypoint_Tooltip">
             <English>Lock the active camera to the current waypoint. Priority: Shift-Click > Group > ACE MicroDAGR.</English>
         </Key>
-        <Key ID="STR_TGP_Main_Stabilize">
+        <Key ID="STR_PYA_Main_Stabilize">
             <English>Stabilize</English>
         </Key>
-        <Key ID="STR_TGP_Main_Stabilize_Tooltip">
+        <Key ID="STR_PYA_Main_Stabilize_Tooltip">
             <English>Toggle stabilization of the active camera at the current target.</English>
         </Key>
-        <Key ID="STR_TGP_Main_CCIP">
+        <Key ID="STR_PYA_Main_CCIP">
             <English>Track CCIP</English>
         </Key>
-        <Key ID="STR_TGP_Main_CCIP_Tooltip">
+        <Key ID="STR_PYA_Main_CCIP_Tooltip">
             <English>Pilot Camera will (roughly) track the bomb CCIP until a bomb is dropped.</English>
         </Key>
-        <Key ID="STR_TGP_Main_CollisionLightsToggle">
+        <Key ID="STR_PYA_Main_CollisionLightsToggle">
             <English>Collision Lights Toggle</English>
         </Key>
-        <Key ID="STR_TGP_Main_PlsWork">
+        <Key ID="STR_PYA_Main_PlsWork">
             <English>Lock to HMD</English>
         </Key>
     </Package>

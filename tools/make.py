@@ -57,7 +57,7 @@ if sys.platform == "win32":
     import winreg
 
 ######## GLOBALS #########
-project = "@tgp"
+project = "@pya"
 project_version = "3.0.0"
 arma3tools_path = ""
 work_drive = ""
@@ -66,11 +66,11 @@ make_root = ""
 release_dir = ""
 module_root_parent = ""
 optionals_root = ""
-key_name = "tgp"
+key_name = "pya"
 key = ""
 dssignfile = ""
-prefix = "tgp"
-pbo_name_prefix = "tgp_"
+prefix = "pya"
+pbo_name_prefix = "pya_"
 signature_blacklist = []
 importantFiles = ["mod.cpp", "README.md", "AUTHORS.txt", "LICENSE", "logo_ampersand_ca.paa"]
 versionFiles = ["README.md", "mod.cpp"]
@@ -525,7 +525,7 @@ def addon_restore(modulePath):
 
 def get_project_version(version_increments=[]):
     global project_version
-    versionSttgp = project_version
+    versionStpya = project_version
     #do the magic based on https://github.com/acemod/ACE3/issues/806#issuecomment-95639048
 
     try:
@@ -568,7 +568,7 @@ def get_project_version(version_increments=[]):
                         ])
 
                 if majorText:
-                    versionSttgp = "{}.{}.{}.{}".format(majorText,minorText,patchText,buildText)
+                    versionStpya = "{}.{}.{}.{}".format(majorText,minorText,patchText,buildText)
 
         else:
             print_error("A Critical file seems to be missing or inaccessible: {}".format(scriptModPath))
@@ -577,13 +577,13 @@ def get_project_version(version_increments=[]):
     except Exception as e:
         print_error("Get_project_version error: {}".format(e))
         print_error("Check the integrity of the file: {}".format(scriptModPath))
-        versionSttgp = project_version
-        print_error("Resetting to the default version sttgp: {}".format(versionSttgp))
+        versionStpya = project_version
+        print_error("Resetting to the default version stpya: {}".format(versionStpya))
         input("Press Enter to continue...")
         print("Resuming build...")
 
-    print_yellow("{} VERSION set to {}".format(project.lstrip("@").upper(),versionSttgp))
-    project_version = versionSttgp
+    print_yellow("{} VERSION set to {}".format(project.lstrip("@").upper(),versionStpya))
+    project_version = versionStpya
     return project_version
 
 
@@ -615,12 +615,12 @@ def set_version_in_files():
 
                 if fileText:
                     # Version string files
-                    # Search and save version sttgp
+                    # Search and save version stpya
                     versionsFound = re.findall(pattern, fileText) + re.findall(patternShort, fileText)
                     # Filter out sub-versions of other versions
                     versionsFound = [j for i, j in enumerate(versionsFound) if all(j not in k for k in versionsFound[i + 1:])]
 
-                    # Replace version sttgp if any of the new version parts is higher than the one found
+                    # Replace version stpya if any of the new version parts is higher than the one found
                     for versionFound in versionsFound:
                         if versionFound:
                             # Use the same version length as the one found
@@ -747,8 +747,8 @@ def get_commit_ID():
     return commit_id
 
 
-def version_sttgp_pboprefix(module,commitID):
-    ### Update pboPrefix with the correct version sttgp. Use commit_id as the build number.
+def version_stpya_pboprefix(module,commitID):
+    ### Update pboPrefix with the correct version stpya. Use commit_id as the build number.
     #This function will not handle any $PBOPREFIX$ backup or cleanup.
     global work_drive
     global prefix
@@ -846,7 +846,7 @@ quiet -- Suppress command line output from build tool.
 
 If module names are specified, only those modules will be built.
 
-Extgples:
+Expyales:
    make.py force test
       Build all modules (ignoring cache) and copy the mod folder to the Arma 3
       directory.
@@ -988,7 +988,7 @@ See the make.cfg file for additional build options.
 
         commit_id = get_commit_ID()
         get_project_version(version_increments)
-        key_name = versionSttgp = get_private_keyname(commit_id)
+        key_name = versionStpya = get_private_keyname(commit_id)
         print_green ("module_root: {}".format(module_root))
 
         if (os.path.isdir(optionals_root)):
@@ -1072,7 +1072,7 @@ See the make.cfg file for additional build options.
     failedBuilds = []
     missingFiles = []
 
-    # Update version sttgp in all files that contain it
+    # Update version stpya in all files that contain it
     # Update version only for release if full update not requested (backup and restore files)
     print_blue("\nChecking for obsolete version numbers...")
     if not version_update:
@@ -1258,7 +1258,7 @@ See the make.cfg file for additional build options.
                     nobinFilePath = os.path.join(work_drive, prefix, module, "$NOBIN$")
                     backup_config(module)
 
-                    version_sttgp_pboprefix(module,commit_id)
+                    version_stpya_pboprefix(module,commit_id)
 
                     if os.path.isfile(nobinFilePath):
                         print_green("$NOBIN$ Found. Proceeding with non-binarizing!")

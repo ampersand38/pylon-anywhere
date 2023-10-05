@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 #######################
-#  TGP Setup Script  #
+#  PYA Setup Script  #
 #######################
 
 import os
@@ -13,26 +13,26 @@ import winreg
 
 ######## GLOBALS #########
 MAINDIR = "z"
-PROJECTDIR = "tgp"
+PROJECTDIR = "pya"
 ##########################
 
 def main():
     FULLDIR = "{}\\{}".format(MAINDIR,PROJECTDIR)
     print("""
   ######################################
-  # TGP Development Environment Setup #
+  # PYA Development Environment Setup #
   ######################################
 
-  This script will create your TGP dev environment for you.
+  This script will create your PYA dev environment for you.
 
   Before you run this, you should already have:
     - A properly setup ACE3 Development Environment
 
   If you have not done those things yet, please abort this script in the next step and do so first.
 
-  This script will create two hard links on your system, both pointing to your TGP project folder:
-    [Arma 3 installation directory]\\{} => TGP project folder
-    P:\\{}                              => TGP project folder
+  This script will create two hard links on your system, both pointing to your PYA project folder:
+    [Arma 3 installation directory]\\{} => PYA project folder
+    P:\\{}                              => PYA project folder
     """.format(FULLDIR,FULLDIR))
     print("\n")
 

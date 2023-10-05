@@ -1,10 +1,10 @@
-name = "TGP Simple Cockpit Slew"
-prefix = "tgp"
+name = "Pylon Anywhere"
+prefix = "pya"
 mainprefix = "z"
 
 [properties]
 author = "Ampersand"
-url = "https://github.com/ampersand38/tgp-simple-cockpit-slew"
+url = "https://github.com/ampersand38/pylon-anywhere"
 
 [files]
 include = [
