@@ -2,6 +2,7 @@
 //#define PREP(var1) TRIPLES(ADDON,fnc,var1) = { call compile preProcessFileLineNumbers '\MAINPREFIX\PREFIX\SUBPREFIX\COMPONENT_F\functions\DOUBLES(fnc,var1).sqf' }
 
 PREP(attachForward);
+PREP(copyHardpoints);
 PREP(fireWeapon);
 PREP(forceFire);
 PREP(input_cyclePylons);
