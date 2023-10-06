@@ -1,6 +1,7 @@
 *.biprivatekey
 *.cache
 *.exe
+*.log
 *.pbo
 *.swo
 *.swp

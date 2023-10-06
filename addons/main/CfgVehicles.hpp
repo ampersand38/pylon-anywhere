@@ -2,6 +2,7 @@ class Components;
 class MainTurret;
 class Turrets;
 class AnimationSources;
+class DefaultEventhandlers;
 
 #include "config\hardpoints.hpp"
 
@@ -78,6 +79,11 @@ class CfgVehicles {
         //class Damage {};
         reportRemoteTargets = 1;
         reportOwnPosition = 1;
+
+        class Eventhandlers: DefaultEventhandlers {
+            //init = QUOTE(call FUNC(initPylon));
+            init = "";
+        };
 
         class AnimationSources {};
         class Attributes;

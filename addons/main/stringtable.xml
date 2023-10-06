@@ -28,5 +28,20 @@
         <Key ID="STR_PYA_Main_PylonRotation_Tooltip">
             <English>Set the rotation of the Pylon to match the attachment surface. The Camera stays upright.</English>
         </Key>
+        <Key ID="STR_PYA_Main_AttachParent_Tooltip">
+            <English>The variable name of the parent vehicle to which this pylon should be attached.</English>
+        </Key>
+        <Key ID="STR_PYA_Main_AttachBone">
+            <English>Turret or Bone</English>
+        </Key>
+        <Key ID="STR_PYA_Main_AttachBone_Tooltip">
+            <English>Optional. The turret path or bone name. Example: [0] or gunnerview</English>
+        </Key>
+        <Key ID="STR_PYA_Main_MatchOrientation">
+            <English>Match Orientation</English>
+        </Key>
+        <Key ID="STR_PYA_Main_MatchOrientation_Tooltip">
+            <English>Check to align pylon with gun barrel. Uncheck to use relative orientation.</English>
+        </Key>
     </Package>
 </Project>
