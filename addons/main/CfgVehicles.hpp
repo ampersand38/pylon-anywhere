@@ -93,7 +93,7 @@ class CfgVehicles {
         class Turrets;
         class UserActions
         {
-            class GVAR(setTrigger)
+            class GVAR(getTrigger)
             {
                 displayName = "Set Remote Trigger";
                 displayNameDefault = "<img image='P:\a3\ui_f\data\GUI\Cfg\Hints\UAVConncetion_ca.paa' size='2.5' />";
@@ -104,12 +104,28 @@ class CfgVehicles {
                 hideOnUse = 1;
                 onlyForPlayer = 0;
                 shortcut = "";
-                condition = "alive this"; // only show if the unit is alive and is not a player
+                condition = QUOTE([this] call FUNC(canSetTrigger));
+                statement = QUOTE([this] call FUNC(setTrigger));
+            };
+            class GVAR(removeTrigger)
+            {
+                displayName = "Remove Remote Trigger";
+                displayNameDefault = "";
+                priority = 0;
+                radius = 10; // a too small radius might cause the action to not be visible
+                position = "";
+                showWindow = 0;
+                hideOnUse = 1;
+                onlyForPlayer = 0;
+                shortcut = "";
+                condition = QUOTE(!([this] call FUNC(canSetTrigger)));
                 statement = QUOTE([this] call FUNC(setTrigger));
             };
         };
         ace_cargo_space = 0;
         ace_cargo_hasCargo = 0;
+        ace_dragging_canDrag = 1;
+        ace_dragging_canCarry = 1;
     }; // base
 
     class GVAR(camera_tgp): GVAR(base)

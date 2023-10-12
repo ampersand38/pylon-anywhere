@@ -25,6 +25,7 @@ if (!local _unit) exitWith {
 };
 
 private _vehicle = vehicle _unit;
+_vehicle addEventHandler ["Fired", FUNC(ehFired)];
 
 private _turretPath = _vehicle unitTurret _unit;
 weaponState [_vehicle, _turretPath] params ["_weapon", "_muzzle", "_fireMode", "_magazine"];
