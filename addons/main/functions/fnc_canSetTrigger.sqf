@@ -20,3 +20,4 @@ params [
 ];
 
 !(_unit in (_pylon getVariable [QGVAR(unitsWithTrigger), []]))
+&& {_pylon != cameraOn}
