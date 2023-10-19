@@ -10,24 +10,28 @@ class CfgPatches {
             QGVAR(pylon_single_tgp),
             QGVAR(pylon_single_turret),
             QGVAR(pylon_single_fixed),
+            QGVAR(pylon_turret_tgp),
             QGVAR(camera_tgp_C),
             QGVAR(camera_turret_C),
             QGVAR(camera_fixed_C),
             QGVAR(pylon_single_tgp_C),
             QGVAR(pylon_single_turret_C),
             QGVAR(pylon_single_fixed_C),
+            QGVAR(pylon_turret_tgp_C),
             QGVAR(camera_tgp_I),
             QGVAR(camera_turret_I),
             QGVAR(camera_fixed_I),
             QGVAR(pylon_single_tgp_I),
             QGVAR(pylon_single_turret_I),
             QGVAR(pylon_single_fixed_I),
+            QGVAR(pylon_turret_tgp_I),
             QGVAR(camera_tgp_O),
             QGVAR(camera_turret_O),
             QGVAR(camera_fixed_O),
             QGVAR(pylon_single_tgp_O),
             QGVAR(pylon_single_turret_O),
-            QGVAR(pylon_single_fixed_O)
+            QGVAR(pylon_single_fixed_O),
+            QGVAR(pylon_turret_tgp_O)
         };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;

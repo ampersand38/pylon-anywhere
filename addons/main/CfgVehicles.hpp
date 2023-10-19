@@ -197,6 +197,14 @@ class CfgVehicles {
         #include "config\Components_single.hpp"
     }; // pylon_single
 
+    class GVAR(pylon_turret_tgp): GVAR(camera_tgp)
+    {
+        displayName = "Remote Turret (Single, TGP)";
+        model = QPATHTOF(data\pya_pylon_turret.p3d);
+        #include "config\AnimationSources.hpp"
+        #include "config\Components_single.hpp"
+    }; // pylon_single_turret
+
     class GVAR(pylons_tgp): GVAR(camera_tgp)
     {
         scope = 1;
@@ -314,6 +322,7 @@ crew = "C_UAV_AI";
     class GVAR(pylon_single_tgp_O): GVAR(pylon_single_tgp) {SIDE_O};
     class GVAR(pylon_single_turret_O): GVAR(pylon_single_turret) {SIDE_O};
     class GVAR(pylon_single_fixed_O): GVAR(pylon_single_fixed) {SIDE_O};
+    class GVAR(pylon_turret_tgp_O): GVAR(pylon_turret_tgp) {SIDE_O};
 
     class GVAR(camera_tgp_I): GVAR(camera_tgp) {SIDE_I};
     class GVAR(camera_turret_I): GVAR(camera_turret) {SIDE_I};
@@ -321,6 +330,7 @@ crew = "C_UAV_AI";
     class GVAR(pylon_single_tgp_I): GVAR(pylon_single_tgp) {SIDE_I};
     class GVAR(pylon_single_turret_I): GVAR(pylon_single_turret) {SIDE_I};
     class GVAR(pylon_single_fixed_I): GVAR(pylon_single_fixed) {SIDE_I};
+    class GVAR(pylon_turret_tgp_I): GVAR(pylon_turret_tgp) {SIDE_O};
 
     class GVAR(camera_tgp_C): GVAR(camera_tgp) {SIDE_C};
     class GVAR(camera_turret_C): GVAR(camera_turret) {SIDE_C};
@@ -328,4 +338,5 @@ crew = "C_UAV_AI";
     class GVAR(pylon_single_tgp_C): GVAR(pylon_single_tgp) {SIDE_C};
     class GVAR(pylon_single_turret_C): GVAR(pylon_single_turret) {SIDE_C};
     class GVAR(pylon_single_fixed_C): GVAR(pylon_single_fixed) {SIDE_C};
+    class GVAR(pylon_turret_tgp_C): GVAR(pylon_turret_tgp) {SIDE_O};
 };
