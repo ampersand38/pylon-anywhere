@@ -4,18 +4,16 @@
  * Initilize pylon. Ensure weapon is assigned to gunner. Check for attach attributes.
  *
  * Arguments:
- * 0: Remote Pylon <OBJECT>
+ * Fired EH
  *
  * Return Value:
- * Success
+ * None
  *
- * Example:
- * [] call pya_main_fnc_ehFired
  */
 
 params ["_pylon", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
 
-_pylon spawn {sleep 1; _this setVehicleAmmo 1;};
+//_pylon spawn {sleep 1; _this setVehicleAmmo 1;};
 //copyToClipboard _ammo;
 
 private _cfgAmmo = configFile >> "CfgAmmo" >> _ammo;
