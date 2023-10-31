@@ -16,7 +16,7 @@
 
 #define LOD_MEMORY 1e15
 
-params ["_child", "_parent", "_bone", ["_matchOrientation", true], ["_lod", LOD_MEMORY]];
+params ["_child", "_parent", ["_bone", ""], ["_matchOrientation", true], ["_lod", LOD_MEMORY]];
 
 if (!isNull attachedTo _child) then {detach _child;}; // Get vectors in world space
 
@@ -28,6 +28,10 @@ private _childX = _childY vectorCrossProduct _childZ;
 private _bonePos = _parent selectionPosition [_bone, _lod];
 private _offset = _childPos vectorDiff _bonePos;
 _parent selectionVectorDirAndUp [_bone, _lod] params ["_boneY", "_boneZ"];
+if (_boneY isEqualTo [0, 0, 0]) then {
+    _boneY set [1, 1];
+    _boneZ set [2, 1];
+};
 private _boneX = _boneY vectorCrossProduct _boneZ;
 
 private _m = matrixTranspose [_boneX, _boneY, _boneZ];

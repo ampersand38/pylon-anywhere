@@ -11,7 +11,7 @@
  * Success
  *
  * Example:
- * [_pylon, _unit] call pya_main_fnc_canSetTrigger
+ * [_pylon, _unit] call pya_main_fnc_canRemoveTrigger
  */
 
 params [
@@ -19,5 +19,5 @@ params [
     ["_unit", call CBA_fnc_currentUnit]
 ];
 
-!unitIsUAV _unit && {_pylon != cameraOn} && {cameraOn == vehicle _unit}
-&& {!(_unit in (_pylon getVariable [QGVAR(unitsWithTrigger), []]))}
+_pylon != cameraOn
+&& {_unit in (_pylon getVariable [QGVAR(unitsWithTrigger), []])}

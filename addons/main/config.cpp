@@ -1,37 +1,21 @@
 #include "script_component.hpp"
 
+#define SIDES_UNITS(name) ARR_4(QGVAR(name),QGVAR(DOUBLES(name,C)),QGVAR(DOUBLES(name,I)),QGVAR(DOUBLES(name,O)))
+
 class CfgPatches {
     class ADDON {
         name = COMPONENT_NAME;
         units[] = {
-            QGVAR(camera_tgp),
-            QGVAR(camera_turret),
-            QGVAR(camera_fixed),
-            QGVAR(pylon_single_tgp),
-            QGVAR(pylon_single_turret),
-            QGVAR(pylon_single_fixed),
-            QGVAR(pylon_turret_tgp),
-            QGVAR(camera_tgp_C),
-            QGVAR(camera_turret_C),
-            QGVAR(camera_fixed_C),
-            QGVAR(pylon_single_tgp_C),
-            QGVAR(pylon_single_turret_C),
-            QGVAR(pylon_single_fixed_C),
-            QGVAR(pylon_turret_tgp_C),
-            QGVAR(camera_tgp_I),
-            QGVAR(camera_turret_I),
-            QGVAR(camera_fixed_I),
-            QGVAR(pylon_single_tgp_I),
-            QGVAR(pylon_single_turret_I),
-            QGVAR(pylon_single_fixed_I),
-            QGVAR(pylon_turret_tgp_I),
-            QGVAR(camera_tgp_O),
-            QGVAR(camera_turret_O),
-            QGVAR(camera_fixed_O),
-            QGVAR(pylon_single_tgp_O),
-            QGVAR(pylon_single_turret_O),
-            QGVAR(pylon_single_fixed_O),
-            QGVAR(pylon_turret_tgp_O)
+            SIDES_UNITS(camera_tgp),
+            SIDES_UNITS(camera_turret),
+            SIDES_UNITS(camera_fixed),
+            SIDES_UNITS(pylon_single_tgp),
+            SIDES_UNITS(pylon_single_turret),
+            SIDES_UNITS(pylon_single_fixed),
+            SIDES_UNITS(pylon_turret_tgp),
+            SIDES_UNITS(smallarms_turret_tgp),
+            SIDES_UNITS(smallarms_turret),
+            QGVAR(smallarms_mount)
         };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
@@ -70,6 +54,7 @@ class CfgMods {
 };
 
 // Configs go here
+#include "Cfg3DEN.hpp"
 #include "CfgEditorSubcategories.hpp"
 #include "CfgEventHandlers.hpp"
 #include "CfgVehicles.hpp"

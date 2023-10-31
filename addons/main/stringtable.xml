@@ -43,5 +43,8 @@
         <Key ID="STR_PYA_Main_MatchOrientation_Tooltip">
             <English>Check to align pylon with gun barrel. Uncheck to use relative orientation.</English>
         </Key>
+        <Key ID="STR_PYA_Main_Disarm">
+            <English>Disarm</English>
+        </Key>
     </Package>
 </Project>

@@ -25,7 +25,7 @@ class Attributes: Attributes // Entity attributes have no categories, they are a
         //--- Optional properties
         unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
         validate = "number"; // Validate the value before saving. If the value is not of given type e.g. "number", the default value will be set. Can be "none", "expression", "condition", "number" or "variable"
-        condition = "object"; // Condition for attribute to appear (see the table below)
+        //condition = "object"; // Condition for attribute to appear (see the table below)
         typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants. This is a scripted feature and has no engine support. See code in (configFile >> "Cfg3DEN" >> "Attributes" >> "Combo" >> "attributeSave")
     };
     class GVAR(attachParent)
@@ -41,7 +41,7 @@ class Attributes: Attributes // Entity attributes have no categories, they are a
         //--- Optional properties
         unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
         validate = "none"; // Validate the value before saving. If the value is not of given type e.g. "number", the default value will be set. Can be "none", "expression", "condition", "number" or "variable"
-        condition = "object"; // Condition for attribute to appear (see the table below)
+        //condition = "object"; // Condition for attribute to appear (see the table below)
         typeName = "STRING"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants. This is a scripted feature and has no engine support. See code in (configFile >> "Cfg3DEN" >> "Attributes" >> "Combo" >> "attributeSave")
     };
     class GVAR(attachBone)
@@ -57,7 +57,7 @@ class Attributes: Attributes // Entity attributes have no categories, they are a
         //--- Optional properties
         unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
         validate = "none"; // Validate the value before saving. If the value is not of given type e.g. "number", the default value will be set. Can be "none", "expression", "condition", "number" or "variable"
-        condition = "object"; // Condition for attribute to appear (see the table below)
+        //condition = "object"; // Condition for attribute to appear (see the table below)
         typeName = "STRING"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants. This is a scripted feature and has no engine support. See code in (configFile >> "Cfg3DEN" >> "Attributes" >> "Combo" >> "attributeSave")
     };
     class GVAR(matchOrientation)
@@ -73,7 +73,29 @@ class Attributes: Attributes // Entity attributes have no categories, they are a
         //--- Optional properties
         unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
         validate = "none"; // Validate the value before saving. If the value is not of given type e.g. "number", the default value will be set. Can be "none", "expression", "condition", "number" or "variable"
-        condition = "object"; // Condition for attribute to appear (see the table below)
+        //condition = "object"; // Condition for attribute to appear (see the table below)
         typeName = "STRING"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants. This is a scripted feature and has no engine support. See code in (configFile >> "Cfg3DEN" >> "Attributes" >> "Combo" >> "attributeSave")
     };
+
+    #ifdef HOLDINGWEAPON
+        class lxws_holdingWeapon
+        {
+            displayName = "Weapon";
+            tooltip = "Sets the mounted weapon.";
+            property = "lxws_holdingWeapon";
+            //control = "lxws_droneHoldingWeaponCombo";
+            control = QGVAR(lxws_droneHoldingWeaponCombo);
+            expression = "[_this,'SetWeaponInit',_value] call lxws_fnc_droneWeapon;";
+            defaultValue = "''";
+        };
+        class GVAR(mountY)
+        {
+            displayName = CSTRING(MountHeight); // Name assigned to UI control class Title
+            tooltip = CSTRING(MountHeight_Tooltip); // Tooltip assigned to UI control class Title
+            property = QGVAR(mountY); // Unique config property name saved in SQM
+            control = "Slider"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+            expression = "_this setVariable ['%s',-_value]; _this animateSource ['mountY_source', -_value, true]";
+            defaultValue = "0";
+        };
+    #endif
 };

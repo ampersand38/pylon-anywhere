@@ -7,8 +7,18 @@ class DefaultEventhandlers;
 #include "config\hardpoints.hpp"
 
 class CfgVehicles {
-    class UAV_03_base_F;
-    class GVAR(base): UAV_03_base_F
+    class StaticMGWeapon;
+    class HMG_01_base_F: StaticMGWeapon
+    {
+        class Turrets;
+    };
+    class HMG_01_A_base_F: HMG_01_base_F {
+        class Turrets: Turrets
+        {
+            class MainTurret;
+        };
+    };
+    class GVAR(base): HMG_01_A_base_F
     {
         author = "Ampersand";
         mapSize = 0;
@@ -17,9 +27,9 @@ class CfgVehicles {
         displayName = "Remote Pylon Base";
         model = QPATHTOF(data\pya_pylon_single.p3d);
         DLC = "";
-        icon = "\a3\ui_f_jets\Data\GUI\Cfg\Hints\AircraftTgtCamera_ca.paa";
-        picture = "\A3\Air_F_Exp\UAV_03\Data\UI\UAV_03_CA.paa";
-        overviewPicture = "\a3\data_f_jets\Images\dlcbrowser_jets_loadouts_ca.paa";
+        icon = "\A3\Static_F_Gamma\data\UI\map_StaticTurret_AA_CA.paa";
+        //picture = "\A3\Air_F_Exp\UAV_03\Data\UI\UAV_03_CA.paa";
+        //overviewPicture = "\a3\data_f_jets\Images\dlcbrowser_jets_loadouts_ca.paa";
         vehicleClass = "Autonomous";
         destrType = "DestructDefault";
         memoryPointTaskMarker = "TaskMarker_1_pos";
@@ -33,43 +43,18 @@ class CfgVehicles {
             libTextDesc = "";
         };
         getInRadius = 0;
-        hasDriver = 0;
-        armor = 10;
+        armor = 100;
         cost = 0;
-        altFullForce = 0;
-        altNoForce = 0;
         class HitPoints {};
-        selectionHRotorMove = "";
-        selectionHRotorStill = "";
-        selectionVRotorMove = "";
-        selectionVRotorStill = "";
-        maxSpeed = 0;
         threat[] = {0, 0, 0};
-        maxMainRotorDive = 7;
-        minMainRotorDive = -7;
-        neutralMainRotorDive = 0;
-        driveOnComponent[] = {};
-        gearRetracting = 0;
-        mainRotorSpeed = -1;
-        backRotorSpeed = 1;
-        startDuration = 5;
         radarTargetSize = 0;
         visualTargetSize = 0;
         irTargetSize = 0;
         lockDetectionSystem = "";
         incomingMissileDetectionSystem = "";
         soundIncommingMissile[] = {};
-        //weapons[] = {"CMFlareLauncher"};
-        //magazines[] = {"120Rnd_CMFlare_Chaff_Magazine"};
         weapons[] = {};
         magazines[] = {};
-        laserScanner = 1;
-        showAllTargets = 4;
-        enableManualFire = 1;
-        //memoryPointCM[] = {"Flare_launcher_1_pos", "Flare_launcher_2_pos"};
-        //memoryPointCMDir[] = {"Flare_launcher_1_dir", "Flare_launcher_2_dir"};
-        memoryPointCM[] = {};
-        memoryPointCMDir[] = {};
         memoryPointLRocket = "";
         memoryPointRRocket = "";
         memoryPointLMissile = "";
@@ -79,18 +64,37 @@ class CfgVehicles {
         //class Damage {};
         reportRemoteTargets = 1;
         reportOwnPosition = 1;
+        showWeaponCargo = 1;
+        maximumLoad = 120;
+        uavCameraGunnerPos = "PiP_pos";
+        uavCameraGunnerDir = "PiP_dir";
 
-        class Eventhandlers: DefaultEventhandlers {
-            //init = QUOTE(call FUNC(initPylon));
-            init = "";
-        };
+        class Eventhandlers: DefaultEventhandlers {};
 
         class AnimationSources {};
         class Attributes;
         class Components;
         class Exhausts {};
         class Sounds {};
-        class Turrets;
+        class TransportItems {};
+        class TransportMagazines {};
+        class TransportWeapons {};
+        class Turrets: Turrets
+        {
+            class MainTurret: MainTurret
+            {
+                minElev = -85;
+                maxElev = 85;
+                initElev = 0;
+                minTurn = -360;
+                maxTurn = 360;
+                initTurn = 0;
+                memoryPointGunnerOutOptics = "gunnerview";
+                laserScanner = 1;
+                showAllTargets = 4;
+                enableManualFire = 1;
+            };
+        };
         class UserActions
         {
             class GVAR(getTrigger)
@@ -98,7 +102,7 @@ class CfgVehicles {
                 displayName = "Set Remote Trigger";
                 displayNameDefault = "<img image='P:\a3\ui_f\data\GUI\Cfg\Hints\UAVConncetion_ca.paa' size='2.5' />";
                 priority = 10;
-                radius = 10; // a too small radius might cause the action to not be visible
+                radius = 6; // a too small radius might cause the action to not be visible
                 position = "";
                 showWindow = 1;
                 hideOnUse = 1;
@@ -112,13 +116,13 @@ class CfgVehicles {
                 displayName = "Remove Remote Trigger";
                 displayNameDefault = "";
                 priority = 0;
-                radius = 10; // a too small radius might cause the action to not be visible
+                radius = 6; // a too small radius might cause the action to not be visible
                 position = "";
                 showWindow = 0;
                 hideOnUse = 1;
                 onlyForPlayer = 0;
                 shortcut = "";
-                condition = QUOTE(!([this] call FUNC(canSetTrigger)));
+                condition = QUOTE([this] call FUNC(canRemoveTrigger));
                 statement = QUOTE([this] call FUNC(setTrigger));
             };
         };
@@ -136,6 +140,7 @@ class CfgVehicles {
         faction = "BLU_F";
         crew = "B_UAV_AI";
         displayName = "Remote Camera (TGP)";
+        gunnerForceOptics = 0;
         #include "config\Attributes.hpp"
 
         class Turrets: Turrets
@@ -203,7 +208,7 @@ class CfgVehicles {
         model = QPATHTOF(data\pya_pylon_turret.p3d);
         #include "config\AnimationSources.hpp"
         #include "config\Components_single.hpp"
-    }; // pylon_single_turret
+    }; // pylon_turret_tgp
 
     class GVAR(pylons_tgp): GVAR(camera_tgp)
     {
@@ -303,40 +308,166 @@ class CfgVehicles {
         }; // Components
     };
 
+    class GVAR(smallarms_turret_tgp): GVAR(camera_tgp)
+    {
+        displayName = "Remote Turret (Small Arms, TGP)";
+        model = QPATHTOF(data\pya_smallarms_turret.p3d);
+        picture = "\A3\Static_f_gamma\data\ui\gear_StaticTurret_MG_CA.paa";
+        showWeaponCargo = 1;
+        maximumLoad = 120;
+        transportMaxWeapons = 1;
+        transportMaxMagazines = 1;
+        lxws_droneWeapon[] = {"<Empty>", "<Empty>", "<Empty>"};
+
+        class Eventhandlers: DefaultEventhandlers {
+            init = QUOTE(_this call FUNC(initSmallArms));
+        };
+        class Turrets: Turrets
+        {
+            class MainTurret: MainTurret
+            {
+                ballisticsComputerOverride = "1 + 16";
+                discreteDistance[] = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000, 3100, 3200, 3300, 3400, 3500, 3600, 3700, 3800, 3900, 4000};
+                discreteDistanceInitIndex = 2;
+                gunBeg = "gun_muzzle";
+                gunEnd = "gun_chamber";
+                memoryPointGun = "gun_muzzle";
+                memoryPointLRocket = "gun_muzzle";
+                memoryPointRRocket = "gun_muzzle";
+                memoryPointLMissile = "gun_muzzle";
+                memoryPointRMissile = "gun_muzzle";
+                gunnerOpticsModel = "\a3\weapons_f_gamma\reticle\HMG_01_Optics_Gunner_F";
+                turretInfoType = "RscOptics_crows";
+            };
+        };
+        #include "config\AnimationSources.hpp"
+        #define HOLDINGWEAPON
+        #include "config\Attributes.hpp"
+        #undef HOLDINGWEAPON
+    }; // smallarms_turret_tgp
+
+    class GVAR(smallarms_turret): GVAR(smallarms_turret_tgp)
+    {
+        displayName = "Remote Turret (Small Arms)";
+        class Turrets: Turrets
+        {
+            class MainTurret: MainTurret
+            {
+                weapons[] = {};
+                magazines[] = {};
+            };
+        };
+    }; // smallarms_turret
+/*
+    class StaticWeapon;
+    class StaticMGWeapon: StaticWeapon
+    {
+        class Turrets;
+    };
+    class HMG_02_base_F: StaticMGWeapon
+    {
+        class AnimationSources;
+        class Attributes;
+        class Turrets: Turrets
+        {
+            class MainTurret;
+        };
+    };
+    class GVAR(smallarms_mount): HMG_02_base_F
+    {
+        scope = 1;
+        scopeCurator = 1;
+        author = "Ampersand";
+        displayName = "Small Arms Mount (Standing)";
+        model = QPATHTOF(data\pya_smallarms_turret.p3d);
+        showWeaponCargo = 1;
+        maximumLoad = 120;
+        hasDriver = 0;
+        transportMaxWeapons = 1;
+        transportMaxMagazines = 1;
+        showNVGGunner = 1;
+        faction = "BLU_F";
+        crew = "B_Soldier_F";
+        class Eventhandlers: DefaultEventhandlers {
+            init = QUOTE(_this call FUNC(initSmallArms));
+        };
+        class Turrets: Turrets
+        {
+            class MainTurret: MainTurret
+            {
+                //ballisticsComputer = 2;
+                discreteDistance[] = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500};
+                discreteDistanceInitIndex = 2;
+                weapons[] = {};
+                magazines[] = {};
+                minTurn = -120;
+                maxTurn = 120;
+                initTurn = 0;
+                minElev = -89;
+                maxElev = 89;
+                //gunnerAction = "gunner_hmg02_standing"; // Gunner weapon is on ground
+                gunnerAction = "gunner_lsv_02"; // Gunner weapon is on ground
+                gunnerInAction = "gunner_staticlauncher";
+                gunnerLeftLegAnimName = "leg_left";
+                gunnerRightLegAnimName = "leg_right";
+                gunnergetInAction = "";
+                gunnergetOutAction = "";
+                gunnerOutOpticsModel = "A3\weapons_f\reticle\optics_empty";
+                turretInfoType = "RscOptics_Offroad_01";
+                gunnerRightHandAnimName = "OtocHlaven_shake";
+                gunnerLeftHandAnimName = "OtocHlaven_shake";
+                gunBeg = "gun_muzzle";
+                gunEnd = "gun_chamber";
+                memoryPointGun = "gun_muzzle";
+                memoryPointGunnerOutOptics = "gunnerview";
+                memoryPointsGetInGunner = "pos_gunner";
+                memoryPointsGetInGunnerDir = "pos_gunner_dir";
+                ejectDeadGunner = 1;
+                hideWeaponsGunner = 0;
+                showHMD = 1;
+                canHideGunner = 1;
+                forceHideGunner = 0;
+                inGunnerMayFire = 0;
+                viewGunnerInExternal = 1;
+                LODTurnedIn = 1;
+                LODTurnedOut = 1;
+            };
+        };
+
+        #define HOLDINGWEAPON
+        #include "config\AnimationSources.hpp"
+        #include "config\Attributes.hpp"
+        #undef HOLDINGWEAPON
+    }; // smallarms_mount
+*/
+
     // Other sides
-#define SIDE_O side = 0; \
-faction = "OPF_F"; \
-crew = "O_UAV_AI";
+    #define SIDE_O side = 0; \
+        faction = "OPF_F"; \
+        crew = "O_UAV_AI";
 
-#define SIDE_I side = 2; \
-faction = "IND_F"; \
-crew = "I_UAV_AI";
+    #define SIDE_I side = 2; \
+        faction = "IND_F"; \
+        crew = "I_UAV_AI";
 
-#define SIDE_C side = 3; \
-faction = "CIV_F"; \
-crew = "C_UAV_AI";
+    #define SIDE_C side = 3; \
+        faction = "CIV_F"; \
+        crew = "C_UAV_AI";
 
-    class GVAR(camera_tgp_O): GVAR(camera_tgp) {SIDE_O};
-    class GVAR(camera_turret_O): GVAR(camera_turret) {SIDE_O};
-    class GVAR(camera_fixed_O): GVAR(camera_fixed) {SIDE_O};
-    class GVAR(pylon_single_tgp_O): GVAR(pylon_single_tgp) {SIDE_O};
-    class GVAR(pylon_single_turret_O): GVAR(pylon_single_turret) {SIDE_O};
-    class GVAR(pylon_single_fixed_O): GVAR(pylon_single_fixed) {SIDE_O};
-    class GVAR(pylon_turret_tgp_O): GVAR(pylon_turret_tgp) {SIDE_O};
+    #define SIDES(name) class GVAR(DOUBLES(name,O)): GVAR(name) {SIDE_O}; \
+        class GVAR(DOUBLES(name,I)): GVAR(name) {SIDE_I}; \
+        class GVAR(DOUBLES(name,C)): GVAR(name) {SIDE_C}
 
-    class GVAR(camera_tgp_I): GVAR(camera_tgp) {SIDE_I};
-    class GVAR(camera_turret_I): GVAR(camera_turret) {SIDE_I};
-    class GVAR(camera_fixed_I): GVAR(camera_fixed) {SIDE_I};
-    class GVAR(pylon_single_tgp_I): GVAR(pylon_single_tgp) {SIDE_I};
-    class GVAR(pylon_single_turret_I): GVAR(pylon_single_turret) {SIDE_I};
-    class GVAR(pylon_single_fixed_I): GVAR(pylon_single_fixed) {SIDE_I};
-    class GVAR(pylon_turret_tgp_I): GVAR(pylon_turret_tgp) {SIDE_O};
 
-    class GVAR(camera_tgp_C): GVAR(camera_tgp) {SIDE_C};
-    class GVAR(camera_turret_C): GVAR(camera_turret) {SIDE_C};
-    class GVAR(camera_fixed_C): GVAR(camera_fixed) {SIDE_C};
-    class GVAR(pylon_single_tgp_C): GVAR(pylon_single_tgp) {SIDE_C};
-    class GVAR(pylon_single_turret_C): GVAR(pylon_single_turret) {SIDE_C};
-    class GVAR(pylon_single_fixed_C): GVAR(pylon_single_fixed) {SIDE_C};
-    class GVAR(pylon_turret_tgp_C): GVAR(pylon_turret_tgp) {SIDE_O};
+    SIDES(camera_tgp);
+    SIDES(camera_turret);
+    SIDES(camera_fixed);
+    SIDES(pylon_single_tgp);
+    SIDES(pylon_single_turret);
+    SIDES(pylon_single_fixed);
+    SIDES(pylon_turret_tgp);
+    SIDES(smallarms_turret_tgp);
+    SIDES(smallarms_turret);
+    //SIDES(smallarms_mount);
+
 };

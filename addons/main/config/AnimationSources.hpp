@@ -34,4 +34,17 @@ class AnimationSources: AnimationSources
         animPeriod = 0.000001; // The animation period used for this controller.
         initPhase = 0;         // Initial phase when object is created.
     };
+
+    #ifdef HOLDINGWEAPON
+        class fake_weapon_source: pylon_rotate_source {initPhase = 1;};
+        class gunnerX_source: pylon_rotate_source {};
+        class gunnerY_source: pylon_rotate_source {};
+        class gunnerZ_source: pylon_rotate_source {};
+        class mountY_source: pylon_rotate_source {};
+    /*
+    class muzzleflashX_source: pylon_rotate_source {};
+    class muzzleflashY_source: pylon_rotate_source {};
+    class muzzleflashZ_source: pylon_rotate_source {};
+    */
+    #endif
 };
