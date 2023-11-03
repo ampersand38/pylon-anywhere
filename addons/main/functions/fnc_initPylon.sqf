@@ -35,7 +35,8 @@ if (_bone == "") exitWith {
 };
 
 if (
-    _bone select [0, 1] == "["
+    _bone select [0, 1] == "[" &&
+    {_bone select [0, -1] == "]"}
 ) then {
     private _turretPath = parseSimpleArray _bone;
     _bone = [_vehicle, [0]] call pya_main_fnc_getTurretBone;

@@ -46,5 +46,11 @@
         <Key ID="STR_PYA_Main_Disarm">
             <English>Disarm</English>
         </Key>
+        <Key ID="STR_PYA_Main_MountHeight">
+            <English>Mount Height</English>
+        </Key>
+        <Key ID="STR_PYA_Main_MountHeight_Tooltip">
+            <English>Extend the mounting strut.</English>
+        </Key>
     </Package>
 </Project>

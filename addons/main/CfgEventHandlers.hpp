@@ -16,11 +16,15 @@ class Extended_PostInit_EventHandlers {
     };
 };
 
-class Extended_InitPost_EventHandlers {
-    class GVAR(base) {
+class Extended_InitPost_EventHandlers  {
+    class GVAR(pylon_base) {
         class GVAR(initPylon) {
-            init = "_this call pya_main_fnc_initPylon";
-            //init = QUOTE(call FUNC(initPylon));
+            init = QUOTE(_this call FUNC(initPylon));
+        };
+    };
+    class GVAR(turret_base) {
+        class GVAR(initSmallArms) {
+            init = QUOTE(_this call FUNC(initSmallArms));
         };
     };
 };
