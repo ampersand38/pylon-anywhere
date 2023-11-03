@@ -293,6 +293,7 @@ class CfgVehicles {
     {
         author = "Ampersand";
         mapSize = 0;
+        side = 1;
         editorSubcategory = QGVAR(EdSubcat_pylons);
         _generalMacro = "";
         displayName = "Remote Pylon Base";
