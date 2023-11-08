@@ -21,7 +21,6 @@ class CfgVehicles {
         side = 1;
         faction = "BLU_F";
         crew = "B_UAV_AI";
-        gunnerForceOptics = 0;
         editorSubcategory = QGVAR(EdSubcat_pylons);
         _generalMacro = "";
         displayName = "Remote Pylon Base";
@@ -379,6 +378,7 @@ class CfgVehicles {
         scope = 2;
         scopeCurator = 2;
         displayName = "Remote Turret (Small Arms, TGP)";
+        crew = "B_UAV_AI";
         model = QPATHTOF(data\pya_smallarms_turret.p3d);
         picture = "\A3\Static_f_gamma\data\ui\gear_StaticTurret_MG_CA.paa";
         showWeaponCargo = 1;
@@ -506,6 +506,67 @@ class CfgVehicles {
     }; // smallarms_mount
 */
 
+    class AA_01_base_F: StaticMGWeapon
+    {
+        class Turrets;
+    };
+    class B_static_AA_F: AA_01_base_F
+    {
+        class Turrets: Turrets
+        {
+            class MainTurret;
+        };
+    };
+    class GVAR(AA_01): B_static_AA_F
+    {
+        faction = "BLU_F";
+        crew = "B_UAV_AI";
+        displayName = "Remote Titan Launcher (AA)";
+        reportRemoteTargets = 1;
+        reportOwnPosition = 1;
+        isUav = 1;
+        uavCameraGunnerPos = "eye";
+        uavCameraGunnerDir = "look";
+        class Turrets: Turrets
+        {
+            class MainTurret: MainTurret
+            {
+                gunnerForceOptics = 1;
+
+            };
+        };
+    };
+    class AT_01_base_F: StaticMGWeapon
+    {
+        class Turrets;
+    };
+    class B_static_AT_F: AT_01_base_F
+    {
+        class Turrets: Turrets
+        {
+            class MainTurret;
+        };
+    };
+    class GVAR(AT_01): B_static_AT_F
+    {
+        faction = "BLU_F";
+        crew = "B_UAV_AI";
+        displayName = "Remote Titan Launcher (AT)";
+        reportRemoteTargets = 1;
+        reportOwnPosition = 1;
+        isUav = 1;
+        uavCameraGunnerPos = "eye";
+        uavCameraGunnerDir = "look";
+        class Turrets: Turrets
+        {
+            class MainTurret: MainTurret
+            {
+                gunnerForceOptics = 1;
+
+            };
+        };
+    };
+
     // Other sides
     #define SIDE_O side = 0; \
         faction = "OPF_F"; \
@@ -517,7 +578,7 @@ class CfgVehicles {
 
     #define SIDE_C side = 3; \
         faction = "CIV_F"; \
-        crew = "C_UAV_AI";
+        crew = "C_UAV_AI_F";
 
     #define SIDES(name) class GVAR(DOUBLES(name,O)): GVAR(name) {SIDE_O}; \
         class GVAR(DOUBLES(name,I)): GVAR(name) {SIDE_I}; \
@@ -533,6 +594,8 @@ class CfgVehicles {
     SIDES(pylon_turret_tgp);
     SIDES(smallarms_turret_tgp);
     SIDES(smallarms_turret);
+    SIDES(AA_01);
+    SIDES(AT_01);
     //SIDES(smallarms_mount);
 
 };

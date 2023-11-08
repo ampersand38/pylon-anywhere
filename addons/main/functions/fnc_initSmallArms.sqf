@@ -24,6 +24,9 @@ _this call pya_main_fnc_initPylon;
     };
 
     [{
+        #ifdef DEBUG_MODE_FULL
+            systemChat "lxws_fnc_droneWeapon";
+        #endif
         [_this, 'Init'] call lxws_fnc_droneWeapon;
     }, _turret] call CBA_fnc_execNextFrame;
 }, _this] call CBA_fnc_execNextFrame;
