@@ -15,8 +15,18 @@ class CfgPatches {
             SIDES_UNITS(pylon_turret_tgp),
             SIDES_UNITS(smallarms_turret_tgp),
             SIDES_UNITS(smallarms_turret),
-            SIDES_UNITS(AA_01),
-            SIDES_UNITS(AT_01),
+            QGVAR(B_AA_01),
+            QGVAR(B_AA_01_weapon),
+            QGVAR(B_AT_01),
+            QGVAR(B_AT_01_weapon),
+            QGVAR(O_AA_01),
+            QGVAR(O_AA_01_weapon),
+            QGVAR(O_AT_01),
+            QGVAR(O_AT_01_weapon),
+            QGVAR(I_AA_01),
+            QGVAR(I_AA_01_weapon),
+            QGVAR(I_AT_01),
+            QGVAR(I_AT_01_weapon),
             QGVAR(smallarms_mount)
         };
         weapons[] = {};
