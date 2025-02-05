@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 /*
  * Author: Ampersand
- * Initilize pylon. Ensure weapon is assigned to gunner. Check for attach attributes.
+ * Mad Dog mode for remote-triggered homing projectiles.
  *
  * Arguments:
  * Fired EH
@@ -13,8 +13,10 @@
 
 params ["_pylon", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
 
-//_pylon spawn {sleep 1; _this setVehicleAmmo 1;};
-//copyToClipboard _ammo;
+#ifdef DEBUG_MODE_FULL
+    _pylon spawn {sleep 1; _this setVehicleAmmo 1;};
+    //copyToClipboard _ammo;
+#endif
 
 private _cfgAmmo = configFile >> "CfgAmmo" >> _ammo;
 private _maxAngle = getNumber (_cfgAmmo >> "missileLockCone") / 2;

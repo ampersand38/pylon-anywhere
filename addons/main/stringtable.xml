@@ -52,5 +52,8 @@
         <Key ID="STR_PYA_Main_MountHeight_Tooltip">
             <English>Extend the mounting strut.</English>
         </Key>
+        <Key ID="STR_PYA_Main_SmallArmsHolder">
+            <English>Small Arms Holder</English>
+        </Key>
     </Package>
 </Project>

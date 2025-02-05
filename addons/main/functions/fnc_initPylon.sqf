@@ -14,9 +14,10 @@
  */
 
 params ["_pylon"];
-if !(local _pylon) exitWith {};
 
 group _pylon setCombatMode "BLUE";
+
+if !(local _pylon) exitWith {};
 
 // Fix pylon weapon assigned to driver
 private _magazine = getPylonMagazines _pylon param [0, ""];

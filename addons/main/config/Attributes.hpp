@@ -83,9 +83,8 @@ class Attributes: Attributes // Entity attributes have no categories, they are a
             displayName = "Weapon";
             tooltip = "Sets the mounted weapon.";
             property = "lxws_holdingWeapon";
-            //control = "lxws_droneHoldingWeaponCombo";
             control = QGVAR(lxws_droneHoldingWeaponCombo);
-            expression = "[_this,'SetWeaponInit',_value] call lxws_fnc_droneWeapon;";
+            expression = "[_this,'SetWeaponInit',_value] call pya_main_fnc_droneWeapon;";
             defaultValue = "''";
         };
         class GVAR(mountY)

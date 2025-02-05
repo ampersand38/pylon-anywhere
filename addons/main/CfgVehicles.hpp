@@ -122,7 +122,7 @@ class CfgVehicles {
 
     class GVAR(camera_turret): GVAR(camera_tgp)
     {
-        displayName = "Remote Camera (Turret)";
+        displayName = "Remote Camera";
 
         class Components;
         class Turrets: Turrets
@@ -150,28 +150,28 @@ class CfgVehicles {
 
     class GVAR(pylon_single_tgp): GVAR(camera_tgp)
     {
-        displayName = "Remote Pylon (Single, TGP)";
+        displayName = "Remote Pylon (TGP)";
         #include "config\AnimationSources.hpp"
         #include "config\Components_single.hpp"
     }; // pylon_single_turret
 
     class GVAR(pylon_single_turret): GVAR(camera_turret)
     {
-        displayName = "Remote Pylon (Single, Turret)";
+        displayName = "Remote Pylon (Camera)";
         #include "config\AnimationSources.hpp"
         #include "config\Components_single.hpp"
     }; // pylon_single
 
     class GVAR(pylon_single_fixed): GVAR(camera_fixed)
     {
-        displayName = "Remote Pylon (Single, Fixed)";
+        displayName = "Remote Pylon";
         #include "config\AnimationSources.hpp"
         #include "config\Components_single.hpp"
     }; // pylon_single
 
     class GVAR(pylon_turret_tgp): GVAR(camera_tgp)
     {
-        displayName = "Remote Turret (Pylon, TGP)";
+        displayName = "Remote Turret (Pylon)";
         model = QPATHTOF(data\pya_pylon_turret.p3d);
         #include "config\AnimationSources.hpp"
         #include "config\Components_single.hpp"
@@ -293,6 +293,7 @@ class CfgVehicles {
         author = "Ampersand";
         mapSize = 0;
         side = 1;
+        faction = "BLU_F";
         editorSubcategory = QGVAR(EdSubcat_pylons);
         _generalMacro = "";
         displayName = "Remote Pylon Base";
@@ -425,6 +426,30 @@ class CfgVehicles {
             };
         };
     }; // smallarms_turret
+
+    class GVAR(smallarms_fixed): GVAR(smallarms_turret)
+    {
+        displayName = "Remote Pylon (Small Arms)";
+        class Turrets: Turrets
+        {
+            class MainTurret: MainTurret
+            {
+                animationSourceBody = "";
+                animationSourceGun = "";
+            };
+        };
+    }; // smallarms_fixed
+
+    class C_Soldier_VR_F;
+    class GVAR(smallarms_dummy): C_Soldier_VR_F {
+    	_generalMacro = "";
+    	scope = 1;
+        scopeCurator = 1;
+        author = "Ampersand";
+    	model = QPATHTOF(data\pya_smallarms_dummy.p3d);
+    	displayName = CSTRING(SmallArmsHolder);
+    };
+
 /*
     class StaticWeapon;
     class StaticMGWeapon: StaticWeapon

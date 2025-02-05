@@ -4,8 +4,10 @@
  * Attach the given pylon to the given vehicle, pointing forward, at the
  *
  * Arguments:
- * 0: Remote Pylon <OBJECT>
- * 1: Turret <ARRAY> Turret path. Driver [-1], Main Turret [0]
+ * 0: Child <OBJECT>
+ * 1: Parent <OBJECT>
+ * 2: Bone <STRING>
+ * 3: Match Orientation <BOOLEAN>
  *
  * Return Value:
  * Success

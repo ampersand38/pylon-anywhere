@@ -41,6 +41,7 @@ class AnimationSources: AnimationSources
         class gunnerY_source: pylon_rotate_source {};
         class gunnerZ_source: pylon_rotate_source {};
         class mountY_source: pylon_rotate_source {};
+        class muzzleEffects_hide_source: pylon_rotate_source {initPhase = 1;};
     /*
     class muzzleflashX_source: pylon_rotate_source {};
     class muzzleflashY_source: pylon_rotate_source {};

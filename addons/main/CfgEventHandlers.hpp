@@ -27,4 +27,10 @@ class Extended_InitPost_EventHandlers  {
             init = QUOTE(_this call FUNC(initSmallArms));
         };
     };
+    class GVAR(smallarms_dummy) {
+        class GVAR(SmallArmsDummy) {
+            init = QUOTE(_this call FUNC(initSmallArmsDummy));
+            fired = QUOTE(_this call FUNC(ehFired_smallArmsDummy));
+        };
+    };
 };
