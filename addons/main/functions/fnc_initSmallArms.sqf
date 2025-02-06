@@ -29,8 +29,8 @@ if (local _vehicle && {!isNull curatorCamera}) then {
     _vehicle attachTo [curatorCamera];
 };
 
-//private _agent = createAgent [QGVAR(smallarms_dummy), [0, 0, 0], [], 0, "CAN_COLLIDE"];
-private _agent = createAgent [typeOf player, [0, 0, 0], [], 0, "CAN_COLLIDE"];
+private _agent = createAgent [QGVAR(smallarms_dummy), [0, 0, 0], [], 0, "CAN_COLLIDE"];
+//private _agent = createAgent [typeOf player, [0, 0, 0], [], 0, "CAN_COLLIDE"];
 _agent attachTo [_vehicle, [0, 0, 0], "mainGun", true];
 _vehicle setVariable [QGVAR(smallarms_dummy), _agent, true];
 private _weapon = _vehicle getVariable ["lxws_holdingWeapon", []];

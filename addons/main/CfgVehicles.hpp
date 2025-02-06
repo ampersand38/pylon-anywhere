@@ -376,7 +376,7 @@ class CfgVehicles {
 
     class GVAR(smallarms_turret_tgp): GVAR(turret_base)
     {
-        scope = 2;
+        scope = 1;
         scopeCurator = 2;
         displayName = "Remote Turret (Small Arms, TGP)";
         crew = "B_UAV_AI";
@@ -402,7 +402,7 @@ class CfgVehicles {
                 memoryPointRRocket = "gun_muzzle";
                 memoryPointLMissile = "gun_muzzle";
                 memoryPointRMissile = "gun_muzzle";
-                gunnerOpticsModel = "\a3\weapons_f_gamma\reticle\HMG_01_Optics_Gunner_F";
+                gunnerOpticsModel = "\a3\weapons_f_gamma\reticle\HMG_01_Optics_Gunner_F.p3d";
                 turretInfoType = "RscOptics_crows";
                 weapons[] = {"Laserdesignator_mounted"};
                 magazines[] = {"Laserbatteries"};
