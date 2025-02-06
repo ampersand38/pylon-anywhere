@@ -73,7 +73,9 @@ class CfgMods {
 #include "Cfg3DEN.hpp"
 #include "CfgEditorSubcategories.hpp"
 #include "CfgEventHandlers.hpp"
+#include "CfgMagazines.hpp"
 #include "CfgVehicles.hpp"
+#include "CfgWeapons.hpp"
 
 // Keybinds
 #include "CfgDefaultKeysPresets.hpp"
