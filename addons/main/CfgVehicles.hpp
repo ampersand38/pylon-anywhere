@@ -376,7 +376,7 @@ class CfgVehicles {
 
     class GVAR(smallarms_turret_tgp): GVAR(turret_base)
     {
-        scope = 1;
+        scope = 2;
         scopeCurator = 2;
         displayName = "Remote Turret (Small Arms, TGP)";
         crew = "B_UAV_AI";
