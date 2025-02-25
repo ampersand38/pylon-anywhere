@@ -25,10 +25,16 @@ private _maxSpeed = getNumber (_cfgAmmo >> "missileLockMaxSpeed");
 private _minDistance = getNumber (_cfgAmmo >> "missileLockMinDistance");
 
 private _targets = _projectile nearEntities [["LaserTarget", "Air", "Ship", "LandVehicle"], _maxDistance] apply {
+    if (_x == _pylon) then {continueWith [];};
+
     private _v = _projectile worldToModel ASLToAGL getPosASL _x;
     _v params ["_vx", "_vy", "_vz"];
     private _mag = vectorMagnitude _v;
-    private _angle = acos (_vy / _mag);
+    private _angle = if (_mag == 0) then {
+        180;
+    } else {
+        acos (_vy / _mag);
+    };
 //systemChat str [typeOf _x, _mag, _mag < _minDistance,_angle, _angle > _maxAngle,speed _x toFixed 0, speed _x > _maxSpeed];
     if (
         _mag < _minDistance
