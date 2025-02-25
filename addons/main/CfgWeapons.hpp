@@ -9,4 +9,9 @@ class CfgWeapons
     {
         magazines[] = {QGVAR(6Rnd_230mm_rockets_cluster), QGVAR(PylonRack_6Rnd_230mm_rockets_cluster)};
     };
+    class Rocket_03_HE_Plane_CAS_02_F;
+    class GVAR(Rocket_03_HE): Rocket_03_HE_Plane_CAS_02_F
+    {
+        magazines[] = {QGVAR(PylonMissile_1Rnd_Rocket_03_HE)};
+    };
 };

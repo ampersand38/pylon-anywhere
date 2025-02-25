@@ -30,4 +30,14 @@ class CfgMagazines
         mass = 500;
     };
 
+    class PylonMissile_1Rnd_Missile_AA_04_F;
+    class GVAR(PylonMissile_1Rnd_Rocket_03_HE): PylonMissile_1Rnd_Missile_AA_04_F
+    {
+        displayName = "Tratnyr 1x HE";
+        hardpoints[] = {"pya_hardpoint"};
+        pylonWeapon = QGVAR(Rocket_03_HE);
+        ammo = "Rocket_03_HE_F";
+        mass = 10;
+    };
+
 };
