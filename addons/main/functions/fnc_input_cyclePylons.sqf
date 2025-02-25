@@ -29,11 +29,7 @@ _selectedPylon = if (_index < count _linkedPylons) then {
 };
 
 private _armedPylons = _unit getVariable [QGVAR(armedPylons), []];
-private _status = if (_selectedPylon in _armedPylons) then {
-    "Armed"
-} else {
-    "Safe"
-};
+private _status = ["Safe", "Armed"] select (_selectedPylon in _armedPylons);
 
 if (isNull _selectedPylon) then {
     hint "Remote Trigger:\nNone";
