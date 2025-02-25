@@ -100,7 +100,7 @@ if (_mode == "Init") exitWith {    // Initialization - adds action
                 } ;
             } ;
             _holdingWeapon#(call {
-                if (_weapon == _muzzle) then {4} else {5}
+                [5, 4] select (_weapon == _muzzle)
             }) set [1,_ammoCount] ;
 
             // Updates weapon info
@@ -183,8 +183,7 @@ if (_mode == "Init") exitWith {    // Initialization - adds action
 
                     (currentWeapon _this != '') and
                     {(_target getVariable ['lxws_holdingWeapon',[]]) isEqualTo []}
-                ",
-                _x
+                "
             ],
             ACTIONDIST,
             false,
@@ -242,8 +241,7 @@ if (_mode == "Init") exitWith {    // Initialization - adds action
                     if (vehicle _this != _this) exitWith {false} ;
 
                     count (_target getVariable ['lxws_holdingWeapon',[]]) != 0
-                ",
-                _x
+                "
             ],
             ACTIONDIST,
             false,
@@ -255,10 +253,10 @@ if (_mode == "Init") exitWith {    // Initialization - adds action
             private _actionID = _uav addAction [str _forEachIndex,    // No text since will replace the text later
                 {
                     params ["_target","_caller","_actionId","_arguments"] ;
-                    private _forEachIndex = _arguments#0 ;
+                    private _forEachIndexx = _arguments#0 ;
                     private _weapon = _target getVariable ["lxws_holdingWeapon",[]] ;
 
-                    private _magazine = _weapon#([4,5]#_forEachIndex) ;
+                    private _magazine = _weapon#([4,5]#_forEachIndexx) ;
                     private _oldCount = _magazine#1 ;
 
                     // Gets the magazine which has the most ammo
@@ -324,7 +322,7 @@ if (_mode == "Init") exitWith {    // Initialization - adds action
 
                     private _holdingWeapon = _target getVariable ['lxws_holdingWeapon',[]] ;
                     if (count _holdingWeapon != 0 and {count (_holdingWeapon#4) != 0}) then {
-                        private _magazineCount = getNumber (configfile >> 'CfgMagazines' >> (_holdingWeapon#4#0) >> 'count') ;
+                        private _magazineCount = getNumber (configFile >> 'CfgMagazines' >> (_holdingWeapon#4#0) >> 'count') ;
                         ((_holdingWeapon#4#1) < _magazineCount) and
                         (_holdingWeapon#4#0) in magazines _this
                     } else {
@@ -338,7 +336,7 @@ if (_mode == "Init") exitWith {    // Initialization - adds action
 
                     private _holdingWeapon = _target getVariable ['lxws_holdingWeapon',[]] ;
                     if (count _holdingWeapon != 0 and {count (_holdingWeapon#5) != 0}) then {
-                        private _magazineCount = getNumber (configfile >> 'CfgMagazines' >> (_holdingWeapon#5#0) >> 'count') ;
+                        private _magazineCount = getNumber (configFile >> 'CfgMagazines' >> (_holdingWeapon#5#0) >> 'count') ;
                         ((_holdingWeapon#5#1) < _magazineCount) and
                         (_holdingWeapon#5#0) in magazines _this
                     } else {
@@ -466,15 +464,15 @@ if (_mode == "SetWeaponInit") exitWith {
         // Or something else?
         //_weapon = _args ;
     } ;
-    private _muzzles = getArray (configfile >> "CfgWeapons" >> _weapon >> "muzzles") ;
+    private _muzzles = getArray (configFile >> "CfgWeapons" >> _weapon >> "muzzles") ;
 
     // todo replace with compatibleMagazines once 2.10 hits
     private _getCompatMag = {
         /*private "_muzzle" ;
         if (_this == "this") then {
-            _muzzle = configfile >> "CfgWeapons" >> _weapon ;
+            _muzzle = configFile >> "CfgWeapons" >> _weapon ;
         } else {
-            _muzzle = configfile >> "CfgWeapons" >> _weapon >> _this ;
+            _muzzle = configFile >> "CfgWeapons" >> _weapon >> _this ;
         } ;
 
         private _return = getArray (_muzzle >> "magazines") ;
