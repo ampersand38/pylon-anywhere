@@ -13,7 +13,7 @@
  * [] call pya_main_fnc_initSmallArms
  */
 
-_this call pya_main_fnc_initPylon;
+call pya_main_fnc_initPylon;
 [{
     params ["_turret"];
 
