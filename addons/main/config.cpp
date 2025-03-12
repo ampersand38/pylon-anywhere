@@ -12,6 +12,7 @@ class CfgPatches {
             SIDES_UNITS(pylon_single_tgp),
             SIDES_UNITS(pylon_single_turret),
             SIDES_UNITS(pylon_single_fixed),
+            SIDES_UNITS(pylon_turret),
             SIDES_UNITS(pylon_turret_tgp),
             SIDES_UNITS(smallarms_turret_tgp),
             SIDES_UNITS(smallarms_turret),

@@ -169,9 +169,17 @@ class CfgVehicles {
         #include "config\Components_single.hpp"
     }; // pylon_single
 
-    class GVAR(pylon_turret_tgp): GVAR(camera_tgp)
+    class GVAR(pylon_turret): GVAR(camera_turret)
     {
         displayName = "Remote Turret (Pylon)";
+        model = QPATHTOF(data\pya_pylon_turret.p3d);
+        #include "config\AnimationSources.hpp"
+        #include "config\Components_single.hpp"
+    }; // pylon_turret
+
+    class GVAR(pylon_turret_tgp): GVAR(camera_tgp)
+    {
+        displayName = "Remote Turret (Pylon, TGP)";
         model = QPATHTOF(data\pya_pylon_turret.p3d);
         #include "config\AnimationSources.hpp"
         #include "config\Components_single.hpp"
@@ -557,6 +565,7 @@ class CfgVehicles {
     SIDES(pylon_single_tgp);
     SIDES(pylon_single_turret);
     SIDES(pylon_single_fixed);
+    SIDES(pylon_turret);
     SIDES(pylon_turret_tgp);
     SIDES(smallarms_turret_tgp);
     SIDES(smallarms_turret);
