@@ -7,7 +7,8 @@ class UserActionGroups
 		group[] = { // List of all actions inside this category.
             QGVAR(CyclePylons),
             QGVAR(ToggleSafety),
-            QGVAR(FirePylons)
+            QGVAR(FirePylons),
+            QGVAR(AimTurret)
         };
 	};
 };

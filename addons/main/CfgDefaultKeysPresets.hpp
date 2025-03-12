@@ -4,6 +4,7 @@ class CfgDefaultKeysPresets {
             GVAR(CyclePylons)[] = {};
             GVAR(ToggleSafety)[] = {};
             GVAR(FirePylons)[] = {};
+            GVAR(AimTurret)[] = {};
 		};
 	};
 };

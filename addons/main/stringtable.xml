@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="PYA">
     <Package name="Main">
+        <Key ID="STR_PYA_Main_AimTurret">
+            <English>Aim Pylons</English>
+        </Key>
+        <Key ID="STR_PYA_Main_AimTurret_Tooltip">
+            <English>Aim the selected pylon turret along the current view direction.</English>
+        </Key>
         <Key ID="STR_PYA_Main_AttachBone">
             <English>Turret or Bone</English>
         </Key>
@@ -15,9 +21,6 @@
         </Key>
         <Key ID="STR_PYA_Main_CyclePylons_Tooltip">
             <English>Cycle through the Pylons for which you have Remote Trigger. Suggested key: same as Change Gunner Weapon.</English>
-        </Key>
-        <Key ID="STR_PYA_Main_Disarm">
-            <English>Disarm</English>
         </Key>
         <Key ID="STR_PYA_Main_FirePylons">
             <English>Fire Pylons</English>

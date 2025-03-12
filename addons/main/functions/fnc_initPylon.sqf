@@ -15,7 +15,11 @@
 
 params ["_pylon"];
 
-group _pylon setCombatMode "BLUE";
+
+private _combatmode_blue = _pylon getVariable [QGVAR(combatmode_blue), true];
+if (combatmode_blue) then {
+    group _pylon setCombatMode "BLUE";
+};
 
 if !(local _pylon) exitWith {};
 
