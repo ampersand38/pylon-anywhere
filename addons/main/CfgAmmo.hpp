@@ -16,10 +16,10 @@ class CfgAmmo
         indirectHitRange = 18;
         cost = 200;
         muzzleEffect = "";
-        soundHit1[] = {"A3\Sounds_F\arsenal\explosives\shells\Artillery_tank_shell_155mm_explosion_01", 2.51189, 1, 1900};
-        soundHit2[] = {"A3\Sounds_F\arsenal\explosives\shells\Artillery_tank_shell_155mm_explosion_02", 2.51189, 1, 1900};
-        soundHit3[] = {"A3\Sounds_F\arsenal\explosives\shells\Artillery_tank_shell_155mm_explosion_03", 2.51189, 1, 1900};
-        soundHit4[] = {"A3\Sounds_F\arsenal\explosives\shells\Artillery_tank_shell_155mm_explosion_04", 2.51189, 1, 1900};
+        soundHit1[] = {"A3\Sounds_F\arsenal\explosives\shells\Artillery_tank_shell_155mm_explosion_01.wss", 2.51189, 1, 1900};
+        soundHit2[] = {"A3\Sounds_F\arsenal\explosives\shells\Artillery_tank_shell_155mm_explosion_02.wss", 2.51189, 1, 1900};
+        soundHit3[] = {"A3\Sounds_F\arsenal\explosives\shells\Artillery_tank_shell_155mm_explosion_03.wss", 2.51189, 1, 1900};
+        soundHit4[] = {"A3\Sounds_F\arsenal\explosives\shells\Artillery_tank_shell_155mm_explosion_04.wss", 2.51189, 1, 1900};
         multiSoundHit[] = {"soundHit1", 0.25, "soundHit2", 0.25, "soundHit3", 0.25, "soundHit4", 0.25};
         CraterEffects = "ArtyShellCrater";
         ExplosionEffects = "MortarExplosion";
