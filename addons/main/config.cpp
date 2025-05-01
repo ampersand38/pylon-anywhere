@@ -71,10 +71,12 @@ class CfgMods {
 };
 
 // Configs go here
+#include "CfgAmmo.hpp"
 #include "Cfg3DEN.hpp"
 #include "CfgEditorSubcategories.hpp"
 #include "CfgEventHandlers.hpp"
 #include "CfgMagazines.hpp"
+#include "CfgNonAIVehicles.hpp"
 #include "CfgVehicles.hpp"
 #include "CfgWeapons.hpp"
 
