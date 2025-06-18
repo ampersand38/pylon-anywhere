@@ -21,7 +21,7 @@ private _unit = call CBA_fnc_currentUnit;
 private _selectedPylon = _unit getVariable [QGVAR(selectedPylon), objNull];
 
 if (isNull _selectedPylon) exitWith {
-    hint "Remote Turret:\nNone";
+    //hint "Remote Turret:\nNone";
 };
 
 private _target = if (isNull cursorObject) then {
