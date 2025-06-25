@@ -3,7 +3,7 @@ class UserActions
     class GVAR(getTrigger)
     {
         displayName = "Set Remote Trigger";
-        displayNameDefault = "<img image='P:\a3\ui_f\data\GUI\Cfg\Hints\UAVConncetion_ca.paa' size='2.5' />";
+        displayNameDefault = "<img image='\a3\ui_f\data\GUI\Cfg\Hints\UAVConncetion_ca.paa' size='2.5' />";
         priority = 10;
         radius = 6; // a too small radius might cause the action to not be visible
         position = "";
