@@ -17,7 +17,7 @@ params ["_pylon"];
 
 
 private _combatmode_blue = _pylon getVariable [QGVAR(combatmode_blue), true];
-if (combatmode_blue) then {
+if (_combatmode_blue) then {
     group _pylon setCombatMode "BLUE";
 };
 
@@ -32,7 +32,7 @@ if (_magazine != "") then {
 private _parentName = _pylon getVariable [QGVAR(attachParent), ""];
 private _vehicle = missionNamespace getVariable [_parentName, objNull];
 
-if (isNull _parent) exitWith {
+if (isNull _vehicle) exitWith {
     #ifdef DEBUG_MODE_FULL
         systemChat "No parent";
     #endif
