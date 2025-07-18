@@ -5,6 +5,7 @@ ADDON = false;
 #include "XEH_PREP.hpp"
 
 GVAR(magazineInfo) = createHashMap;
+GVAR(pylonMagazineOffsetMap) = createHashMap;
 
 #ifdef DISABLE_COMPILE_CACHE
     lxws_fnc_droneWeapon = {call compile preprocessFileLineNumbers QPATHTOF(functions\lxws_fnc_DroneWeapon.sqf);};

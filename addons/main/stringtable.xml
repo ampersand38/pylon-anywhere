@@ -28,6 +28,24 @@
         <Key ID="STR_PYA_Main_FirePylons_Tooltip">
             <English>Fire all armed Pylons. Suggested key: same as Command Fire.</English>
         </Key>
+        <Key ID="STR_PYA_Main_JettisonAll">
+            <English>Jettison Stores - All</English>
+        </Key>
+        <Key ID="STR_PYA_Main_JettisonAll_Tooltip">
+            <English>Jettison all pylon stores.</English>
+        </Key>
+        <Key ID="STR_PYA_Main_JettisonDgf">
+            <English>Jettison Stores - Dogfight</English>
+        </Key>
+        <Key ID="STR_PYA_Main_JettisonDgf_Tooltip">
+            <English>Jettison all pylon stores except gun pods and Air-to-Air Missiles.</English>
+        </Key>
+        <Key ID="STR_PYA_Main_JettisonSel">
+            <English>Jettison Stores - Selected</English>
+        </Key>
+        <Key ID="STR_PYA_Main_JettisonSel_Tooltip">
+            <English>Jettison pylon stores of the currently selected magazine.</English>
+        </Key>
         <Key ID="STR_PYA_Main_MatchOrientation">
             <English>Match Orientation</English>
         </Key>

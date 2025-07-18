@@ -8,7 +8,10 @@ class UserActionGroups
             QGVAR(CyclePylons),
             QGVAR(ToggleSafety),
             QGVAR(FirePylons),
-            QGVAR(AimTurret)
+            QGVAR(AimTurret),
+            QGVAR(JettisonSel),
+            QGVAR(JettisonDgf),
+            QGVAR(JettisonAll)
         };
 	};
 };

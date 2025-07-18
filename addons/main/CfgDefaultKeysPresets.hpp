@@ -5,6 +5,9 @@ class CfgDefaultKeysPresets {
             GVAR(ToggleSafety)[] = {};
             GVAR(FirePylons)[] = {};
             GVAR(AimTurret)[] = {};
+            GVAR(JettisonSel)[] = {};
+            GVAR(JettisonDgf)[] = {};
+            GVAR(JettisonAll)[] = {};
 		};
 	};
 };

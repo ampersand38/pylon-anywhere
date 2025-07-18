@@ -1,20 +1,18 @@
 #include "config\hardpoints.hpp"
 
 class CfgVehicles {
-    class Helicopter;
-    class Helicopter_Base_F: Helicopter
+    class LandVehicle;
+    class StaticWeapon: LandVehicle
     {
         class Turrets;
     };
-    class UAV_03_base_F: Helicopter_Base_F {
-        class AnimationSources;
-        class Components;
+    class StaticMGWeapon: StaticWeapon {
         class Turrets: Turrets
         {
             class MainTurret;
         };
     };
-    class GVAR(pylon_base): UAV_03_base_F
+    class GVAR(pylon_base): StaticMGWeapon
     {
         author = "Ampersand";
         mapSize = 0;
@@ -25,7 +23,6 @@ class CfgVehicles {
         _generalMacro = "";
         displayName = "Remote Pylon Base";
         model = QPATHTOF(data\pya_pylon_single.p3d);
-        DLC = "";
         icon = "\A3\Static_F_Gamma\data\UI\map_StaticTurret_AA_CA.paa";
         //picture = "\A3\Air_F_Exp\UAV_03\Data\UI\UAV_03_CA.paa";
         //overviewPicture = "\a3\data_f_jets\Images\dlcbrowser_jets_loadouts_ca.paa";
@@ -33,39 +30,16 @@ class CfgVehicles {
         vehicleClass = "Autonomous";
         destrType = "DestructDefault";
         memoryPointTaskMarker = "TaskMarker_1_pos";
-        unitInfoType = "RscOptics_AV_pilot";
-        fuelExplosionPower = 0;
-        fuelCapacity = 0;
-        fuelConsumptionRate = 0;
-        class Library
-        {
-            libTextDesc = "";
-        };
-        driveOnComponent[] = {};
         getInRadius = 0;
-        armor = 100;
         cost = 0;
         class HitPoints {};
         threat[] = {0, 0, 0};
         radarTargetSize = 0;
         visualTargetSize = 0;
         irTargetSize = 0;
-        lockDetectionSystem = "";
-        incomingMissileDetectionSystem = "";
-        soundIncommingMissile[] = {};
-        weapons[] = {};
-        magazines[] = {};
-        memoryPointLRocket = "";
-        memoryPointRRocket = "";
-        memoryPointLMissile = "";
-        memoryPointRMissile = "";
-        hiddenSelections[] = {};
-        hiddenSelectionsTextures[] = {};
-        //class Damage {};
         reportRemoteTargets = 1;
         reportOwnPosition = 1;
-        showWeaponCargo = 1;
-        maximumLoad = 120;
+        maximumLoad = 0;
         uavCameraGunnerPos = "PiP_pos";
         uavCameraGunnerDir = "PiP_dir";
 
@@ -168,6 +142,13 @@ class CfgVehicles {
         #include "config\AnimationSources.hpp"
         #include "config\Components_single.hpp"
     }; // pylon_single
+
+    class GVAR(pylon_detached): GVAR(pylon_single_fixed)
+    {
+        scope = 1;
+        displayName = "Pylon";
+        class UserActions {};
+    };
 
     class GVAR(pylon_turret): GVAR(camera_turret)
     {
@@ -283,14 +264,12 @@ class CfgVehicles {
         }; // Components
     };
 
-    class StaticMGWeapon;
+    // class StaticMGWeapon;
     class HMG_01_base_F: StaticMGWeapon
     {
         class Turrets;
     };
     class HMG_01_A_base_F: HMG_01_base_F {
-        class AnimationSources;
-        class Components;
         class Turrets: Turrets
         {
             class MainTurret;
@@ -351,7 +330,6 @@ class CfgVehicles {
 
         class AnimationSources {};
         class Attributes;
-        class Components;
         class Exhausts {};
         class Sounds {};
         class TransportItems {};
@@ -400,7 +378,7 @@ class CfgVehicles {
         {
             class MainTurret: MainTurret
             {
-                ballisticsComputerOverride = "1 + 16";
+                ballisticsComputerOverride = 1 + 16;
                 discreteDistance[] = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000, 3100, 3200, 3300, 3400, 3500, 3600, 3700, 3800, 3900, 4000};
                 discreteDistanceInitIndex = 2;
                 gunBeg = "gun_muzzle";

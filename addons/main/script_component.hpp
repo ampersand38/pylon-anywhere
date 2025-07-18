@@ -16,3 +16,7 @@
 #endif
 
 #include "\z\pya\addons\main\script_macros.hpp"
+
+#define JETTISON_MODE_ALL 0
+#define JETTISON_MODE_SELECTED 1
+#define JETTISON_MODE_DOGFIGHT 2
