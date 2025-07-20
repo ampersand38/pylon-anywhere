@@ -1,4 +1,6 @@
 #include "config\hardpoints.hpp"
+class DefaultVehicleSystemsDisplayManagerLeft;
+class DefaultVehicleSystemsDisplayManagerRight;
 
 class CfgVehicles {
     class LandVehicle;
@@ -28,6 +30,7 @@ class CfgVehicles {
         //overviewPicture = "\a3\data_f_jets\Images\dlcbrowser_jets_loadouts_ca.paa";
         hasDriver = 0;
         vehicleClass = "Autonomous";
+        isUav = 1;
         destrType = "DestructDefault";
         memoryPointTaskMarker = "TaskMarker_1_pos";
         getInRadius = 0;
@@ -51,10 +54,8 @@ class CfgVehicles {
         class TransportItems {};
         class TransportMagazines {};
         class TransportWeapons {};
-        class Turrets: Turrets
-        {
-            class MainTurret: MainTurret
-            {
+        class Turrets: Turrets {
+            class MainTurret: MainTurret {
                 minElev = -85;
                 maxElev = 85;
                 initElev = 0;
@@ -66,7 +67,115 @@ class CfgVehicles {
                 enableManualFire = 1;
                 stabilizedInAxes = 3;
                 memoryPointGun = "PiP_pos";
-                memoryPointGunnerOptics = "PiP_pos";
+                memoryPointGunnerOptics = "PiP_pos";isCopilot = 0;
+                animationSourceBody = "MainTurret";
+                animationSourceGun = "MainGun";
+                body = "MainTurret";
+                gun = "MainGun";
+                weapons[] = {"missiles_SCALPEL", "missiles_DAR", "Laserdesignator_mounted"};
+                magazines[] = {"6Rnd_LG_scalpel", "24Rnd_missiles", "Laserbatteries"};
+                commanding = -1;
+                gunnerCompartments = "Compartment2";
+                gunnerForceOptics = 1;
+                gunnerOpticsModel = "\A3\Drones_F\Weapons_F_Gamma\Reticle\UGV_01_Optics_Gunner_F.p3d";
+                outGunnerMayFire = 1;
+                inGunnerMayFire = 1;
+                primaryGunner = 1;
+                soundServo[] = {"A3\Sounds_F\vehicles\air\noises\servo_drone_turret_2.wss", 0.1, 1, 10};
+                soundServoVertical[] = {"A3\Sounds_F\vehicles\air\noises\servo_drone_turret_2.wss", 0.1, 1, 10};
+                startEngine = 0;
+                turretInfoType = "RscOptics_UAV_gunner";
+                LODTurnedIn = -1;
+                LODTurnedOut = -1;
+                class OpticsIn {
+                    class Wide {
+                        initAngleX = 0;
+                        minAngleX = -30;
+                        maxAngleX = 30;
+                        initAngleY = 0;
+                        minAngleY = -100;
+                        maxAngleY = 100;
+                        initFov = 0.5;
+                        minFov = 0.5;
+                        maxFov = 0.5;
+                        opticsDisplayName = "W";
+                        directionStabilized = 1;
+                        visionMode[] = {"Normal", "NVG", "Ti"};
+                        thermalMode[] = {0, 1};
+                        gunnerOpticsModel = "\A3\Drones_F\Weapons_F_Gamma\Reticle\UAV_Optics_Gunner_wide_F.p3d";
+                    };
+                    class Medium: Wide {
+                        initFov = 0.1;
+                        minFov = 0.1;
+                        maxFov = 0.1;
+                        opticsDisplayName = "M";
+                        gunnerOpticsModel = "\A3\Drones_F\Weapons_F_Gamma\Reticle\UAV_Optics_Gunner_medium_F.p3d";
+                    };
+                    class Narrow: Wide {
+                        initFov = 0.0286;
+                        minFov = 0.0286;
+                        maxFov = 0.0286;
+                        opticsDisplayName = "N";
+                        gunnerOpticsModel = "\A3\Drones_F\Weapons_F_Gamma\Reticle\UAV_Optics_Gunner_narrow_F.p3d";
+                    };
+                };
+                class OpticsOut {
+                    class Monocular {
+                        initAngleX = 0;
+                        minAngleX = -30;
+                        maxAngleX = 30;
+                        initAngleY = 0;
+                        minAngleY = -100;
+                        maxAngleY = 100;
+                        initFov = 1.1;
+                        minFov = 0.133;
+                        maxFov = 1.1;
+                        visionMode[] = {"Normal", "NVG"};
+                        gunnerOpticsModel = "";
+                        gunnerOpticsEffect[] = {};
+                    };
+                };
+                class Components {
+                    class VehicleSystemsDisplayManagerComponentLeft: DefaultVehicleSystemsDisplayManagerLeft {
+                        class components {
+                            class EmptyDisplay {
+                                componentType = "EmptyDisplayComponent";
+                            };
+                            class MinimapDisplay {
+                                componentType = "MinimapDisplayComponent";
+                                resource = "RscCustomInfoAirborneMiniMap";
+                            };
+                            class UAVDisplay {
+                                componentType = "UAVFeedDisplayComponent";
+                            };
+                            class SensorDisplay {
+                                componentType = "SensorsDisplayComponent";
+                                range[] = {4000, 2000, 1000, 8000};
+                                resource = "RscCustomInfoSensors";
+                            };
+                        };
+                    };
+                    class VehicleSystemsDisplayManagerComponentRight: DefaultVehicleSystemsDisplayManagerRight {
+                        defaultDisplay = "SensorDisplay";
+                        class components {
+                            class EmptyDisplay {
+                                componentType = "EmptyDisplayComponent";
+                            };
+                            class MinimapDisplay {
+                                componentType = "MinimapDisplayComponent";
+                                resource = "RscCustomInfoAirborneMiniMap";
+                            };
+                            class UAVDisplay {
+                                componentType = "UAVFeedDisplayComponent";
+                            };
+                            class SensorDisplay {
+                                componentType = "SensorsDisplayComponent";
+                                range[] = {4000, 2000, 1000, 8000};
+                                resource = "RscCustomInfoSensors";
+                            };
+                        };
+                    };
+                };
             };
         };
         #include "config\UserActions.hpp"
